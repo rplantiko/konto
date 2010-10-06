@@ -8,9 +8,9 @@ use warnings;
 sub new {
   my %args = @_;
   my $self = { cols=>5,        # Zahl der Spalten, in die die CSV-Zeile aufgespalten wird 
-               prefix=>"buch", # Nur Zeilen mit diesem Key-Präfix werden berücksichtigt
+               prefix=>"buch", # Nur Zeilen mit diesem Key-PrÃ¤fix werden berÃ¼cksichtigt
                rows=>[],       # Bild der Datei als Zeilen-Array
-               index=>{}       # Index-Hash für die Keys
+               index=>{}       # Index-Hash fÃ¼r die Keys
                };
                
   foreach my $key (keys %args) {
@@ -24,7 +24,7 @@ sub new {
 
 
 #-----------------------------------------------------------------------
-# Änderungen am Bild der Datei (dem Array @rows) durchführen
+# Ã„nderungen am Bild der Datei (dem Array @rows) durchfÃ¼hren
 #-----------------------------------------------------------------------
 sub update_rows {
   
@@ -57,7 +57,7 @@ sub update_rows {
 
 
 #-----------------------------------------------------------------------
-# Delete-Operationen ausführen (im Speicher)
+# Delete-Operationen ausfÃ¼hren (im Speicher)
 #-----------------------------------------------------------------------
 sub delete_row {
   my ($self,$key) =  @_;
@@ -69,7 +69,7 @@ sub delete_row {
   }
   
 #-----------------------------------------------------------------------
-# Insert-Operationen ausführen (im Speicher)
+# Insert-Operationen ausfÃ¼hren (im Speicher)
 #-----------------------------------------------------------------------
 sub insert_row {
   my ($self,$new_key,$line) = @_;
@@ -78,7 +78,7 @@ sub insert_row {
   }
   
 #-----------------------------------------------------------------------
-# Update-Operationen ausführen (im Speicher)
+# Update-Operationen ausfÃ¼hren (im Speicher)
 #-----------------------------------------------------------------------
 sub change_row {
   my ($self,$key,$line) = @_;
@@ -95,7 +95,7 @@ sub change_row {
 sub read_rows {
   my $self = shift;
   my $rows = $self->{rows};
-  open KONTO, "<$self->{file}" or die "Kann Datei $self->{file} nicht zum Lesen öffnen";
+  open KONTO, "<$self->{file}" or die "Kann Datei $self->{file} nicht zum Lesen Ã¶ffnen";
   foreach (<KONTO>) {
     chomp;
     push @$rows,$_;
@@ -111,7 +111,7 @@ sub read_rows {
 sub save {
   my $self = shift;
   my $row;
-  open KONTO, ">$self->{file}" or die "Kann Datei $self->{file} nicht zum Schreiben öffnen";
+  open KONTO, ">$self->{file}" or die "Kann Datei $self->{file} nicht zum Schreiben Ã¶ffnen";
   foreach $row (@{$self->{rows}}) {
     print KONTO $row . "\n" if $row;
     }
@@ -141,7 +141,7 @@ sub build_index {
   }
   
 #-----------------------------------------------------------------------
-# Die Zeilen mit passendem Key-Präfix zurückgeben 
+# Die Zeilen mit passendem Key-PrÃ¤fix zurÃ¼ckgeben 
 #-----------------------------------------------------------------------
 sub get_rows {
   my $self = shift;

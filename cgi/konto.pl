@@ -11,7 +11,7 @@ use MiniJSON;
 
 
 my $queryString = $ENV{"QUERY_STRING"} 
-   || "action=get_all";  # Für standalone Testausführungen
+   || "action=get_all";  # FÃ¼r standalone TestausfÃ¼hrungen
    
 my ($action) = ($queryString =~ /action=(\w+)/);
 
@@ -21,11 +21,11 @@ my $tableMaintainer = CsvTableMaintainer::new( file=>"konto.dat" );
 print "Content-Type:text/plain\n\n";
 
 
-# Im Queryparameter übergebene Aktion ausführen
+# Im Queryparameter Ã¼bergebene Aktion ausfÃ¼hren
 print &{$action}() if $action;
 
 #-----------------------------------------------------------------------
-# Action "get_all" - Tabelle einlesen und an den Client übergeben
+# Action "get_all" - Tabelle einlesen und an den Client Ã¼bergeben
 #-----------------------------------------------------------------------
 sub get_all {
   my $buchungen = 
@@ -37,7 +37,7 @@ sub get_all {
 
 
 #-----------------------------------------------------------------------
-# Action "save" - vom Benutzer getätigte Änderungen übernehmen
+# Action "save" - vom Benutzer getÃ¤tigte Ã„nderungen Ã¼bernehmen
 #-----------------------------------------------------------------------
 sub save {
   
@@ -48,16 +48,16 @@ sub save {
     $httpBody .= $_;
     }
 
-# Der Request-Body ist ein JSON-Hash mit den geänderten Zeilen
+# Der Request-Body ist ein JSON-Hash mit den geÃ¤nderten Zeilen
   $changed = eval_json_hash( $httpBody );
 
-# Änderungen übernehmen
+# Ã„nderungen Ã¼bernehmen
   $tableMaintainer->update_rows( $changed ); 
   
 # Abspeichern  
   $tableMaintainer->save( ); 
     
-# Komplette HTML-Tabelle neu berechnen und als Name:Wert-Paar übergeben   
+# Komplette HTML-Tabelle neu berechnen und als Name:Wert-Paar Ã¼bergeben   
   my $buchungen = csv_rows_to_json( $tableMaintainer->get_rows("buchungen") );
 
   return qq({ buchungen:$buchungen, msg:"Die Daten wurden gesichert"});
@@ -65,7 +65,7 @@ sub save {
   }
   
 #-----------------------------------------------------------------------
-# In dieser Subroutine könnte der User, 
+# In dieser Subroutine kÃ¶nnte der User, 
 # mit dem die HTTP-Anmeldung erfolgt ist, ausgelesen werden  
 #-----------------------------------------------------------------------
  sub get_logon_user() {
