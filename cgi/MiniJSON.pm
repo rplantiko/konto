@@ -1,6 +1,6 @@
 package MiniJSON;
 
-# Minimalistischer JSON-Layer für das CSV-Pflegebeispiel
+# Minimalistischer JSON-Layer fÃ¼r das CSV-Pflegebeispiel
 
 use base qw (Exporter);
 
@@ -35,12 +35,12 @@ sub eval_json_hash {
   my $text = shift;
   my $hash;
   
-# Alle Doppelpunkte, auf die ein Anführungszeichen folgt, ersetzen durch =>
+# Alle Doppelpunkte, auf die ein AnfÃ¼hrungszeichen folgt, ersetzen durch =>
   $text =~ s/:(?=\s*['"])/=>/g;
  
   $hash = eval($text);
  
-# Die Maskierung der Anführungszeichen im Text entfernen 
+# Die Maskierung der AnfÃ¼hrungszeichen im Text entfernen 
   foreach my $key (keys %$hash) {
     $hash->{$key} =~ s/\\(['"])/$1/g;
     }

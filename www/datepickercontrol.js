@@ -61,7 +61,7 @@ DatePickerControl.submitFormat    = "";
 DatePickerControl.offsetY         = 1;
 DatePickerControl.offsetX         = 0;
 DatePickerControl.todayText       = "Heute";
-DatePickerControl.buttonTitle     = "Kalenderhilfe öffnen...";
+DatePickerControl.buttonTitle     = "Kalenderhilfe Ã¶ffnen...";
 DatePickerControl.buttonPosition  = "in";  // or "out"
 DatePickerControl.buttonOffsetX   = 0;     // See below for some considerations about
 DatePickerControl.buttonOffsetY   = 0;     // that values (for IE)
@@ -425,7 +425,7 @@ DatePickerControl.createButton = function(input, useId)
 	calButton.style.verticalAlign = "bottom";
 // OffsetHeight funktionierte nicht	
 	calButton.style.height = 20; // input.offsetHeight;
-// Width auch noch beigegeben, dann sieht es schöner aus
+// Width auch noch beigegeben, dann sieht es schÃ¶ner aus
 	calButton.style.width = 20;
 	calButton.src = "calendar_icon.png";
 	if (this.buttonPosition == "in"){
@@ -1807,5 +1807,5 @@ function writeLayer(ID, parentID, sText)
 }
 
 //
-// Compartir es la única manera de perdurar
+// Compartir es la Ãºnica manera de perdurar
 // EOF

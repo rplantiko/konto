@@ -1,9 +1,9 @@
 var detailRow; // Verweist auf HTML-Element TR der im Detailbereich dargestellten Zeile
-var backendURL = "/cgi-bin/konto.pl"; // Verweist auf den Requestbehandler für die Kontopflege
+var backendURL = "/cgi-bin/konto.pl"; // Verweist auf den Requestbehandler fÃ¼r die Kontopflege
 
 function doOnLoad() {  
 
-// --- Formulardaten zurücksetzen, Ladezustand anzeigen
+// --- Formulardaten zurÃ¼cksetzen, Ladezustand anzeigen
   resetDetailForm();
   $("msg").update("");
 
@@ -17,7 +17,7 @@ function doOnLoad() {
   
   }
 
-// --- Nach Rückkehr eines Ajax-Requests: Seitenteile aktualisieren
+// --- Nach RÃ¼ckkehr eines Ajax-Requests: Seitenteile aktualisieren
 function updatePage(transport) {
   var id, newCode;
   newCode = transport.responseText.evalJSON();
@@ -31,7 +31,7 @@ function updatePage(transport) {
       $(id).update( newCode[id] );
       }
     }
-// Ladezustand zurücksetzen    
+// Ladezustand zurÃ¼cksetzen    
   $("loading").hide();
   }  
   
@@ -40,7 +40,7 @@ function user_update( user ) {
   $("user").innerHTML = user.capitalize();
   }  
 
-// --- Vom Server als Array of Array gesendete Buchungszeilen ins HTML übernehmen
+// --- Vom Server als Array of Array gesendete Buchungszeilen ins HTML Ã¼bernehmen
 function buchungen_update( rows ) {
   
   var tbody = $("buchungen").down("tbody");
@@ -65,7 +65,7 @@ function buchungen_update( rows ) {
     img.observe("click", doOnClick );    
     });
     
-// Datenbankstand - Sichern ist unnötig    
+// Datenbankstand - Sichern ist unnÃ¶tig    
   $("save").hide();  
   
   }
@@ -80,7 +80,7 @@ function doOnClick( event ) {
   action(target);
   }
 
-// --- Click auf "Zeile ändern" : Zeile in Formular stellen und dieses sichtbar machen
+// --- Click auf "Zeile Ã¤ndern" : Zeile in Formular stellen und dieses sichtbar machen
 function onclick_change( target ) {
   detailRow = target.up("tr");  
   var cells = detailRow.select("td");
@@ -128,7 +128,7 @@ function showError( text ) {
   $("msg").innerHTML = '<span style="color:red">' + text + '</span>';
   }  
 
-// --- Click auf "Zeile löschen":
+// --- Click auf "Zeile lÃ¶schen":
 function onclick_delete( target ) {
   
   var selectedRow = target.up("tr");
@@ -138,11 +138,11 @@ function onclick_delete( target ) {
     resetDetailForm();
     }
 
-// Neue Zeile kann ohne Umschweife gelöscht werden
+// Neue Zeile kann ohne Umschweife gelÃ¶scht werden
   if (selectedRow.hasClassName("new")) {
     selectedRow.parentNode.removeChild(selectedRow);
     }     
-// Schon im File bestehende Zeile: fürs Löschen vormerken    
+// Schon im File bestehende Zeile: fÃ¼rs LÃ¶schen vormerken    
   else {  
   	selectedRow.addClassName("deleted");
     var controlCell = selectedRow.select("td")[4];
@@ -156,11 +156,11 @@ function onclick_delete( target ) {
   
   }
 
-// --- Click auf "Rückgängig machen"
+// --- Click auf "RÃ¼ckgÃ¤ngig machen"
 function onclick_undo( target ) {
   var selectedRow = target.up("tr");
   
-// Löschvormerkung zurücknehmen  
+// LÃ¶schvormerkung zurÃ¼cknehmen  
   selectedRow.removeClassName("deleted");
   
 // Delete und Change-Icon wieder aktivieren, undo deaktivieren   
@@ -174,7 +174,7 @@ function onclick_undo( target ) {
     
   }
 
-// --- Click auf "Sichern": Geänderte Daten dem Server mitteilen
+// --- Click auf "Sichern": GeÃ¤nderte Daten dem Server mitteilen
 function onclick_save( evt ) {
   var data = extractChanges();
   sendRequest( "save", { 
@@ -186,19 +186,19 @@ function onclick_save( evt ) {
   resetDetailForm();
   }
   
-// --- Für die Überleitung an den Server: Alle Änderungen ermitteln  
+// --- FÃ¼r die Ãœberleitung an den Server: Alle Ã„nderungen ermitteln  
 function extractChanges() {
   var result = {};
   
   $("buchungen").select("tr").each( function(row) {
     var line ="", cellsChanged = false;
  
- // Gelöschte Zeilen bekommen den fixen Datenstring "deleted"
+ // GelÃ¶schte Zeilen bekommen den fixen Datenstring "deleted"
     if (row.hasClassName("deleted")) {
-      result[row.id] = "deleted";  /* Sondercode für gelöschte Zeilen */  
+      result[row.id] = "deleted";  /* Sondercode fÃ¼r gelÃ¶schte Zeilen */  
       }
     else {
-// Für eingefügte und geänderte Zeilen den Datenteil übergeben      
+// FÃ¼r eingefÃ¼gte und geÃ¤nderte Zeilen den Datenteil Ã¼bergeben      
       if (row.hasClassName("new")) cellsChanged = true;
       row.select("td").each( function(cell, index) {
         if (index > 3) throw $break;
@@ -217,7 +217,7 @@ function extractChanges() {
   
   }  
 
-// --- Formularbereich für Eingabe eines neuen Eintrags eröffnen
+// --- Formularbereich fÃ¼r Eingabe eines neuen Eintrags erÃ¶ffnen
 function onclick_newEntry( evt ) {
   resetDetailForm();
   $("datum").value = today();
@@ -225,14 +225,14 @@ function onclick_newEntry( evt ) {
   }
   
 
-// --- Formulareingabe ohne Datenübernahme abbrechen
+// --- Formulareingabe ohne DatenÃ¼bernahme abbrechen
 function onclick_cancel( evt ) {
   resetDetailForm();
   $("msg").update("");
   hideDetailForm();
   }  
 
-// --- Formulareingaben prüfen und übernehmen
+// --- Formulareingaben prÃ¼fen und Ã¼bernehmen
 function onclick_takeDetails(evt) {
   try {
     checkForm();
@@ -256,7 +256,7 @@ function onclick_takeDetails(evt) {
 function getNewRow() {
   var id, newCounter = 0;
 
-// Nächste freie ID der Form "newX" ermitteln, wobei X eine Zahl ist  
+// NÃ¤chste freie ID der Form "newX" ermitteln, wobei X eine Zahl ist  
   $("buchungen").select("tr").each( function( row ) {
     if (row.id.match(/new(\d+)/)) {
       var counter = 1*RegExp.$1;
@@ -276,7 +276,7 @@ function getNewRow() {
               '<td class="c4"> </td>' + 
               '<td>' + controlCell() + '</td>' );
           
-// Clickbehandler für neue Kontrollelemente registrieren              
+// Clickbehandler fÃ¼r neue Kontrollelemente registrieren              
   row.select("img").each( function( img ) {
     img.observe("click", doOnClick );    
     });
@@ -284,15 +284,15 @@ function getNewRow() {
   return row;  
   }  
 
-// --- Formulardaten löschen und Formularbereich schliessen  
+// --- Formulardaten lÃ¶schen und Formularbereich schliessen  
 function resetDetailForm() {  
   $("detailForm").getElements().each( Form.Element.clear );
   hideDetailForm();
   detailRow = null;
   }
 
-// Das HTML-Element pair[0] mit dem String pair[1] als HTML-Content füllen
-// Bei Datenänderung CSS-Klasse "changed" setzen  
+// Das HTML-Element pair[0] mit dem String pair[1] als HTML-Content fÃ¼llen
+// Bei DatenÃ¤nderung CSS-Klasse "changed" setzen  
 function updateCell( pair ) {
 
   var oldValue = pair[0].innerHTML;
@@ -306,12 +306,12 @@ function updateCell( pair ) {
   
   }  
 
-// --- Save-Button nur anbieten, wenn sich Daten geändert haben
+// --- Save-Button nur anbieten, wenn sich Daten geÃ¤ndert haben
 function checkDataLoss() {
   $("save").style.display = dataLoss() ? "inline" : "none";
   }
   
-// --- Feststellen, ob Daten geändert wurden  
+// --- Feststellen, ob Daten geÃ¤ndert wurden  
 function dataLoss() {
   var lDataLoss = false;
   $("buchungen").select("tr").each( function(row) {
@@ -333,8 +333,8 @@ function dataLoss() {
 
 // --- HTML-Code der letzten Tabellenzelle mit den Kontroll-Icons
 function controlCell() {
-  return '<img class="change" src="s_b_chng.gif" title="Eintrag ändern">' +
-         '<img class="delete" src="s_b_delr.gif" title="Eintrag löschen">' +
+  return '<img class="change" src="s_b_chng.gif" title="Eintrag Ã¤ndern">' +
+         '<img class="delete" src="s_b_delr.gif" title="Eintrag lÃ¶schen">' +
          '<img class="undo" style="display:none" src="s_f_undo.gif" title="Eintrag wiederherstellen">';
   }
 
@@ -342,12 +342,12 @@ function controlCell() {
 // --- Die Requests senden im Querytsring eine action 
 //     und verwenden den HTTP-Body (Parameter postBody) zum Datentransport
 function sendRequest( action, params, sync ) {  
-  $("loading").show();  // - Visualisieren, dass eine Aktion an den Server ausgeführt wird
+  $("loading").show();  // - Visualisieren, dass eine Aktion an den Server ausgefÃ¼hrt wird
   new Ajax.Request( backendURL + "?action=" + action, params, sync ? true : false );
   }
   
 // ---------------------------------------------------------------------------------------------
-// Funktion wird im Moment nicht benötigt: setzt auf dem Client Neu -> Alt
+// Funktion wird im Moment nicht benÃ¶tigt: setzt auf dem Client Neu -> Alt
 // Die Daten brauchen demnach nicht vom Server neu angeliefert zu werden
 function removeChangeIndicators() {
   $("buchungen").select("tr").each(function(row){

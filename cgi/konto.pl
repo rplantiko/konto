@@ -21,7 +21,7 @@ my $tableMaintainer = CsvTableMaintainer::new( file=>"konto.dat" );
 print "Content-Type:text/plain\n\n";
 
 
-# Im Queryparameter übergebene Aktion ausführen
+# Im Queryparameter Ã¼bergebene Aktion ausfuhren
 print &{$action}() if $action;
 
 #-----------------------------------------------------------------------
