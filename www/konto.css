@@ -1,0 +1,178 @@
+/* Farbschema generiert mit www.neteffect.dk/colormatch, Grundfarbe rgb(255,102,57), L steps = 20%
+
+Current Colors
+bgcolor   #FEC939
+text1  
+text2  
+text3  
+text4  
+color1  #FF6639
+color2  #FEC939
+color3  #39D2FE
+color4  #9C9C9C
+color5  #D2FE39
+color6  #396FFE
+link    #6639FE
+vlink   #C939FE
+alink   #FE396F
+hover   #39FE66
+
+*/
+
+body {
+  font-family: Verdana;
+  font-size:90%;
+  margin: 0px;
+  padding: 0px;
+  width:100%;
+  background-color:#FEC939;
+  }
+
+h1 {
+  background-color:#FF6639; 
+  margin:0px;
+  padding:10px 20px;
+  text-align:left;
+  }  
+  
+#buchungen {
+  max-height:200px;
+  border-collapse:collapse;
+  margin:20px;
+  }  
+  
+#buchungen th, #buchungen td {
+  border: solid black 1px;
+  padding: 5px;
+  }
+  
+#loading {
+  vertical-align:middle;
+  height:30px;
+  }  
+
+#buchungen th {
+  background-color:#FF6639; 
+  text-align: left;
+  }
+
+#buchungen td {
+  background-color: #D2FE39;
+  }
+  
+#buchungen td.c1 {
+  width:100px;
+  text-align:right;
+  }  
+
+#buchungen td.c2 {
+  width:75px;
+  text-align:right;
+  }  
+
+#buchungen td.c3 {
+  width:85px;
+  text-align:left;
+  }  
+
+#buchungen td.c4 {
+  width:600px;
+  text-align:left;
+  }  
+
+#buchungen td.c5 {
+  }  
+  
+#buchungen img {
+  cursor:pointer;
+  }  
+  
+#detail label {
+  width:150px;
+  vertical-align:top;
+  }
+  
+#detail .input {
+  width:350px;
+  vertical-align:top;
+  }  
+  
+#detailForm {
+  margin:40 0 0 20;
+  width:750px;
+  background-color: #D2FE39;
+  position:relative;
+  border:solid black 1px;
+  }  
+  
+#detail {
+  padding:10px;
+  width:600px;
+  position:relative;
+  margin:10px 10px 0px 10px;
+  }     
+
+#detailForm div.caption {
+  font-weight:bold;
+  font-size:120%;
+  text-align:left;
+  background-color:#FF6639;
+  padding:10px;
+  }
+
+
+#msg {
+  height:40px;
+  vertical-align:middle;
+  font-weight:bold;
+  color:green;
+  margin:20px;
+  }
+  
+button {
+  background-color:#39FE66;
+  color:black;
+  font-weight:bold;
+  font-size:110%;
+  cursor:pointer;
+  width:250px;
+  height:35px;
+  }    
+  
+#takeContainer {
+  text-align:left;
+  width:100%;
+  padding: 10px;
+  }  
+  
+#take {
+  padding:5px;  
+  }
+
+#actions {
+  margin:20px;
+  text-align:left;
+  }  
+  
+#actions button {
+  padding:5px;
+  }
+  
+#status {
+  padding:100px;
+  }
+  
+#user {
+  display:none;
+  }     
+  
+.changed {
+  background-color:#39FE66 !important;
+  }  
+
+.deleted td {
+  background-color:#39FE66 !important;
+  text-decoration:line-through;
+  }  
+  
+  
