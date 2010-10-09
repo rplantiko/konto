@@ -145,13 +145,11 @@ sub build_index {
 #-----------------------------------------------------------------------
 sub get_rows {
   my $self = shift;
-  my $index = $self->{index};
-  my (@rows,$key,$i);
+  my (@rows,$row);
   
-  foreach $key (%$index) {
-    next unless $key =~ /$self->{prefix}(\d+)/o;
-    $i = $index->{$key};
-    push @rows, $self->{rows}->[$i];    
+  foreach $row (@{$self->{rows}}) {
+    next unless $row =~ /^$self->{prefix}(\d+)/o;
+    push @rows, $row;    
     }
   
   return \@rows;

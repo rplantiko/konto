@@ -13,7 +13,8 @@ function doOnLoad() {
   $("take").observe("click",   onclick_takeDetails );
   $("cancel").observe("click", onclick_cancel );
   $("save").observe("click",   onclick_save );
-  $("new").observe("click",    onclick_newEntry );    
+  $("new").observe("click",    onclick_newEntry );
+  $$(".testlink").each( function(x) { x.observe( "click",doTestLink); });    
   
   }
 
@@ -21,6 +22,13 @@ function doOnLoad() {
 function updatePage(transport) {
   var id, newCode;
   newCode = transport.responseText.evalJSON();
+  
+// Den User zuerst aktualisieren  
+  if (newCode.user) {
+    user_update( newCode.user );
+    delete newCode.user;
+    }
+
   for (id in newCode) {
 // Entweder mit spezieller Methode, falls implementiert ...    
     if (typeof self[id+"_update"] == "function") {
@@ -44,6 +52,8 @@ function user_update( user ) {
 function buchungen_update( rows ) {
   
   var tbody = $("buchungen").down("tbody");
+  var user = $("user").innerHTML;
+  
   tbody.update("");
   
   var controlCellCode = controlCell(); 
@@ -54,7 +64,8 @@ function buchungen_update( rows ) {
     cells.each( function(cellData, index) {    
       row.appendChild( new Element( "td", {className:"c"+(index+1)}).update(cellData) );
       });
-    row.appendChild( new Element( "td", {className:"c5"} ).update(controlCellCode) );
+    row.appendChild( new Element( "td", {className:"c5"} ).update(
+      (cells[2] == user) ? controlCellCode : "" ) );
     tbody.appendChild(row);  
     });
     
@@ -211,7 +222,6 @@ function extractChanges() {
         }
       }  
     });
-
     
   return Object.toJSON(result);
   
@@ -345,6 +355,13 @@ function sendRequest( action, params, sync ) {
   $("loading").show();  // - Visualisieren, dass eine Aktion an den Server ausgeführt wird
   new Ajax.Request( backendURL + "?action=" + action, params, sync ? true : false );
   }
+  
+// --- Testlink ausführen
+function doTestLink() {
+  var action = this.id.match(/test_(\w+)/)[1];
+  sendRequest( action, {onComplete:updatePage} );
+  
+  }  
   
 // ---------------------------------------------------------------------------------------------
 // Funktion wird im Moment nicht benötigt: setzt auf dem Client Neu -> Alt

@@ -1,29 +1,31 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-     "http://www.w3.org/TR/html4/loose.dtd">
+          "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head> 
-    <meta http-equiv="content-type" content="text/html; charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="prototype.js"></script>
     <script type="text/javascript" src="konto.js"></script>
     <script type="text/javascript" src="datepickercontrol.js"></script>
     <style type="text/css">@import url(konto.css);</style>
     <style type="text/css">@import url(datepickercontrol.css);</style> 
-    <title>Mein Konto</title>
+    <title>Mein Konto - Testapplikation</title>
   </head>
   <body> 
-    <span id="user"></span>
-    <h1>Mein Konto</h1>                                 
+    <h1>Mein Konto - <i>Testapplikation</i></h1>                                 
+    <div id="anmeldeinfo">Angemeldet als: <span id="user"></span></div>
     <div id="loading">                                   
-      <img src="hourglass.gif">                      
+      <img src="hourglass.gif" alt="Daten werden übermittelt">                      
       Daten werden übermittelt...                           
     </div>                                              
     <table id="buchungen" style="display:none">
       <thead>
-        <th>Datum</th>
-        <th>Betrag</th>
-        <th>Wer</th>
-        <th>Bemerkung</th>
-        <th></th>
+        <tr>
+          <th>Datum</th>
+          <th>Betrag</th>
+          <th>Wer</th>
+          <th>Bemerkung</th>
+          <th></th>
+        </tr>  
       </thead>
       <tbody>
       </tbody>  
@@ -36,7 +38,7 @@
       <tr><td class="label">Betrag</td>                 
       <td class="input"><input id="betrag" type="text" size="10" maxlength="10"></td></tr>
       <tr><td class="label">Bemerkung</td>           
-      <td class="input"><textarea id="bemerkung" type="text" cols="72"></textarea></td></tr>
+      <td class="input"><textarea id="bemerkung" cols="72" rows="2"></textarea></td></tr>
     </table>
     <div id="takeContainer">           
     <button id="take">Übernehmen</button>
@@ -47,6 +49,8 @@
     <button id="new"><img src="s_b_crea.gif">&nbsp;Neuer Eintrag</button>
     <button id="save" style="display:none;"><img src="s_f_save.gif">&nbsp;Änderungen speichern</button>
     </div>
-    <div id="msg"></div>                                
+    <div id="msg"></div>   
+    <div class="testlink" id="test_restore">&rarr; Für Testapplikation: Testdaten zurücksetzen</div>                             
+    
   </body>
 </html>

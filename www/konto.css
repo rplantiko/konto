@@ -98,7 +98,7 @@ h1 {
   }  
   
 #detailForm {
-  margin:40 0 0 20;
+  margin:40px 0 0 20px;
   width:750px;
   background-color: #D2FE39;
   position:relative;
@@ -162,10 +162,6 @@ button {
   padding:100px;
   }
   
-#user {
-  display:none;
-  }     
-  
 .changed {
   background-color:#39FE66 !important;
   }  
@@ -175,4 +171,24 @@ button {
   text-decoration:line-through;
   }  
   
-  
+#anmeldeinfo {
+  font-size:75%;
+  text-align:right;
+  margin-right:3px;
+  }
+
+#user {
+  font-weight:bold;
+  }
+   
+   
+.testlink {
+  cursor:pointer;
+  font-size:80%;
+  margin-left:20px;
+  }    
+
+.testlink:hover {
+  color:red;
+  font-weight:bold;
+  }  
