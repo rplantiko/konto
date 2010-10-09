@@ -1,4 +1,4 @@
-#!W:/perl/bin/perl.exe
+#!/perl/bin/perl.exe
 
 # CGI Perl-Requesthandler, der mit der Kontopflegeseite kommuniziert
 
