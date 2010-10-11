@@ -238,8 +238,8 @@ function onclick_newEntry( evt ) {
 // --- Formulareingabe ohne Datenübernahme abbrechen
 function onclick_cancel( evt ) {
   resetDetailForm();
+  checkDataLoss();
   $("msg").update("");
-  hideDetailForm();
   }  
 
 // --- Formulareingaben prüfen und übernehmen
@@ -296,7 +296,7 @@ function getNewRow() {
 
 // --- Formulardaten löschen und Formularbereich schliessen  
 function resetDetailForm() {  
-  $("detailForm").getElements().each( Form.Element.clear );
+  $$("#detailForm input").each( Form.Element.clear );
   hideDetailForm();
   detailRow = null;
   }
@@ -323,21 +323,11 @@ function checkDataLoss() {
   
 // --- Feststellen, ob Daten geändert wurden  
 function dataLoss() {
-  var lDataLoss = false;
-  $("buchungen").select("tr").each( function(row) {
-    if (row.hasClassName("deleted")) {
-      lDataLoss = true;
-      throw $break;
-      }
-    row.select("td").each( function(cell) {
-      if (cell.className.match(/changed/)) {
-        lDataLoss = true;
-        throw $break;
-        }
+  return $("buchungen").down("tbody").
+    select("tr").any( function(row) {
+      return row.hasClassName("deleted") ||
+             row.down("td[class~=changed]");  
       });
-    if (lDataLoss) throw $break;  
-    });
-  return lDataLoss;
   }  
 
 
