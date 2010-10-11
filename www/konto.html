@@ -30,27 +30,26 @@
       <tbody>
       </tbody>  
     </table>                          
-    <form id="detailForm" method="post" style="display:none;" onSubmit="return false;">
-    <div class="caption">Detaildaten des Eintrags</div>         
-    <table id="detail">        
-      <tr><td class="label">Datum</td>                   
-      <td class="input"><input id="datum" type="text" size="10" maxlength="10" class="date" readonly></td></tr>
-      <tr><td class="label">Betrag</td>                 
-      <td class="input"><input id="betrag" type="text" size="10" maxlength="10"></td></tr>
-      <tr><td class="label">Bemerkung</td>           
-      <td class="input"><textarea id="bemerkung" cols="72" rows="2"></textarea></td></tr>
-    </table>
-    <div id="takeContainer">           
-    <button id="take">Übernehmen</button>
-    <button id="cancel"><img src="s_b_canc.gif" width="16" height="15">&nbsp;Abbrechen</button>
-    </div>
-    </form>      
+    <div id="detailForm">
+      <div class="caption">Detaildaten des Eintrags</div>         
+      <table id="detail">        
+        <tr><td class="label">Datum</td>                   
+        <td class="input"><input id="datum" type="text" size="10" maxlength="10" class="date" readonly></td></tr>
+        <tr><td class="label">Betrag</td>                 
+        <td class="input"><input id="betrag" type="text" size="10" maxlength="10"></td></tr>
+        <tr><td class="label">Bemerkung</td>           
+        <td class="input"><textarea id="bemerkung" cols="72" rows="2"></textarea></td></tr>
+      </table>
+      <div id="takeContainer">           
+        <button id="take">Übernehmen</button>
+        <button id="cancel"><img src="s_b_canc.gif" width="16" height="15">&nbsp;Abbrechen</button>
+      </div>
+    </div>      
     <div id="actions">
     <button id="new"><img src="s_b_crea.gif">&nbsp;Neuer Eintrag</button>
     <button id="save" style="display:none;"><img src="s_f_save.gif">&nbsp;Änderungen speichern</button>
     </div>
     <div id="msg"></div>   
-    <div class="testlink" id="test_restore">&rarr; Für Testapplikation: Testdaten zurücksetzen</div>                             
-    
+    <div class="testlink" id="test_restore">&rarr; Für Testapplikation: Testdaten zurücksetzen</div>                                 
   </body>
 </html>
