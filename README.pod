@@ -4,5 +4,5 @@ This web application provides a simple UI for adding, changing and deleting the 
 
 It consists of a single web page C<konto.html>, enriched with some JavaScript code in C<konto.js>. Communication with the server is per Ajax, calling a CGI script C<konto.pl> which makes the changes persistent using a class C<CsvTableMaintainer.pm>. The data transfer format in both directions is JSON, which is parsed by Prototype on the client, and by an own package C<MiniJSON.pm> on the server.
 
-
+See http://ruediger-plantiko.net/konto/ for the running example.
 
