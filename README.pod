@@ -6,11 +6,11 @@ It consists of a single web page C<konto.html>, enriched with some JavaScript co
 
 See L<http://ruediger-plantiko.net/konto/> for the running example.
 
+=head2 Reused parts
+
 The following parts are reused from other sources, see the links for copyrights:
 
 =over
-
 =item The L<Datepicker Control|http://dali.mty.itesm.mx/~hugo/js/datepickercontrol/> for entering a date in the detail block.
 =item Some L<SAP icons|http://www.sapdesignguild.org/resources/icons_sap/icons_d1_3.htm> for navigation (I<back>, I<cancel>, I<new>, I<delete row>, I<undo> and I<save>).
-
 =back
