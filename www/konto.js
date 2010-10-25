@@ -332,6 +332,9 @@ function dataLoss() {
 
 
 // --- HTML-Code der letzten Tabellenzelle mit den Kontroll-Icons
+// @TODO: HTML-Code als #controlCellTemplate in die HTML-Seite unsichtbar einlagern
+//        Dann den innerHTML hier übernehmen 
+//        Die bessere Sprachtrennung tut beiden Ressourcen gut, index.html und konto.js
 function controlCell() {
   return '<img class="change" src="s_b_chng.gif" title="Eintrag ändern">' +
          '<img class="delete" src="s_b_delr.gif" title="Eintrag löschen">' +
