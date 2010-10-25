@@ -1,8 +1,10 @@
 =head1 Simple web app for table maintenance
 
-This web application provides a simple UI for adding, changing and deleting the rows of a table persistently. The essential idea is to use the HTML table itself to manage the changes (the "after image") that have to be sent to the server when the user hits "save".  
+This web application provides a simple UI for adding, changing and deleting the rows of a table persistently. The essential idea is to use the HTML table itself to manage the changes (the "after image") that have to be sent to the server when the user hits "save". The values of the cells correspond to the current values of the data as maintained by the user in the current session. To keep track which cells have been changed or which rows have been deleted, the HTML cell and row elements get special CSS classes during the session. This way, no separate data container for the table is needed. The web page itself is used for this.
 
-It consists of a single web page C<konto.html>, enriched with some JavaScript code in C<konto.js>. Communication with the server is per Ajax, calling a CGI script C<konto.pl> which makes the changes persistent using a class C<CsvTableMaintainer.pm>. The data transfer format in both directions is JSON, which is parsed by Prototype on the client, and by an own package C<MiniJSON.pm> on the server.
+The application consists of a single web page C<konto.html>, enriched with some JavaScript code in C<konto.js>. Communication with the server is per Ajax, calling a CGI script C<konto.pl> which makes the changes persistent using a class C<CsvTableMaintainer.pm>. The data transfer format in both directions is JSON, which is parsed by Prototype on the client, and by an own package C<MiniJSON.pm> on the server.
+
+To keep the example simple, a CSV file is used on server side for storing the data. There are simple scenarios where this kind of data storage is completely sufficient.
 
 See L<http://ruediger-plantiko.net/konto/> for the running example.
 
