@@ -20,7 +20,7 @@ The Datepicker Control (L<http://dali.mty.itesm.mx/~hugo/js/datepickercontrol/>)
 
 =item *
 
-Some SAP icons (L<http://www.sapdesignguild.org/resources/icons_sap/icons_d1_3.htm>) for navigation (I<back>, I<cancel>, I<new>, I<delete row>, I<undo> and I<save>).
+Some SAP icons (L<http://www.sapdesignguild.org/resources/icons_sap/icons_d1_3.htm>) for navigation (I<cancel>, I<new>, I<delete row>, I<undo> and I<save>).
 
 =item *
 
