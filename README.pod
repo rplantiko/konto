@@ -6,7 +6,7 @@ The application consists of a single web page C<konto.html>, enriched with some 
 
 To keep the example simple, a CSV file is used on server side for storing the data. There are simple scenarios where this kind of data storage is completely sufficient.
 
-See L<http://ruediger-plantiko.net/konto/> for the running example.
+See L<http://ruediger-plantiko.net/konto/> for the running example, and L<http://ruediger-plantiko.blogspot.com/2010/10/tabellenpflege-als-webanwendung.html> for a more detailed discussion in German language.
 
 =head2 Reused parts
 
